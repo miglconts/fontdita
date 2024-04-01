@@ -1,7 +1,16 @@
-import { Inter } from "next/font/google";
+import { JetBrains_Mono, Open_Sans } from "next/font/google";
 import "./globals.css";
+import Header from "@/ui/Header";
+import Footer from "@/ui/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const sans = Open_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +20,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={`min-h-screen bg-background font-sans antialiased flex flex-col justify-between ${sans.variable}`}
+      >
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
