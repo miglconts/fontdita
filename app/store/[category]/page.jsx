@@ -7,12 +7,14 @@ export async function generateMetadata({ params, searchParams }, parent) {
   };
 }
 
-const Productos = ({ params }) => {
+const ProductosCategory = ({ params }) => {
   const { category } = params;
 
   return (
     <main className="container m-auto">
-      <h2 className="text-2xl my-10 border-b border-orange-600  pb-4">Productos</h2>
+      <h2 className="text-2xl my-10 border-b border-orange-600  pb-4">
+        Productos
+      </h2>
 
       <div className="flex gap-10">
         <CategoriesMenu />
@@ -22,4 +24,4 @@ const Productos = ({ params }) => {
   );
 };
 
-export default Productos;
+export default ProductosCategory;

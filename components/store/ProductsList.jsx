@@ -1,13 +1,9 @@
 import ProductCard from "./ProductCard";
-import { getData } from "@/lib/utils";
 
 export default async function ProductsList({ category }) {
-  const data = await getData();
-  const items =
-    category === "all"
-      ? data
-      : data.filter((item) => item.category.name === category);
-
+  const items = await fetch(
+    `${process.env.NEXT_PUBLIC_HOST}/api/products/${category}`
+  ).then((r) => r.json());
   return (
     <section className="container m-auto flex justify-center  gap-3 flex-wrap">
       {items.map((item) => (

@@ -10,6 +10,12 @@
       ],
       "@/ui/*": [
         "components/ui/*"
+      ],
+      "@/api/*": [
+        "api/*"
+      ],
+      "@/firebase/*": [
+        "firebase/*"
       ]
     }
   }

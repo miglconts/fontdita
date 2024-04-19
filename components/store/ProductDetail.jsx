@@ -1,7 +1,5 @@
 import Image from "next/image";
-import { getItem } from "@/lib/utils";
 import Quantity from "@/components/store/Quantity";
-import Counter from "../ui/Counter";
 
 import {
   Carousel,
@@ -12,13 +10,16 @@ import {
 } from "@/ui/carousel";
 
 export default async function ProductDetail({ slug }) {
-  const item = await getItem(slug);
+  const item = await fetch(
+    `${process.env.NEXT_PUBLIC_HOST}/api/detail/${slug}`
+  ).then((r) => r.json());
+  console.log(item);
 
   return (
     <article className=" m-auto">
       <section className="flex flex-col md:flex-row gap-6">
         <div className="relative basis-1/2">
-          <Carousel className=" mx-6 " >
+          <Carousel className=" mx-6 ">
             <CarouselContent>
               {item.images.map((image) => (
                 <CarouselItem key={image}>
@@ -40,7 +41,7 @@ export default async function ProductDetail({ slug }) {
             {item.title}
           </h2>
           <p className="text-4xl">$ {item.price}</p>
-          <Quantity/> 
+          <Quantity />
         </div>
       </section>
       <section className="mt-12">
