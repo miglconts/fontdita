@@ -11,13 +11,12 @@ export async function GET(request, { params }) {
     category === "all"
       ? productsRef
       : query(productsRef, where("category.name", "==", category));
-
   const querySnapshot = await getDocs(q);
-
-  const doc = querySnapshot.docs.map((doc) => doc.data());
+  console.log(q);
+  const docs = querySnapshot.docs.map((doc) => doc.data());
 
   // revalidatePath("/products/[category]");
-  console.log(doc);
+  // console.log(docs);
 
-  return NextResponse.json(doc);
+  return NextResponse.json(docs);
 }

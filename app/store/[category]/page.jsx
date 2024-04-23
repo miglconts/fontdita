@@ -7,7 +7,19 @@ export async function generateMetadata({ params, searchParams }, parent) {
   };
 }
 
-const ProductosCategory = ({ params }) => {
+export function generateStaticParams() {
+  return [
+    { category: "all" },
+    { category: "Electronics" },
+    { category: "Furniture" },
+    { category: "Shoes" },
+    { category: "Miscellaneous" },
+  ];
+}
+
+export const revalidate = 3600;
+
+export default function ProductosCategory({ params }) {
   const { category } = params;
 
   return (
@@ -22,6 +34,4 @@ const ProductosCategory = ({ params }) => {
       </div>
     </main>
   );
-};
-
-export default ProductosCategory;
+}

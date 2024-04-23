@@ -14,8 +14,11 @@
       "@/api/*": [
         "api/*"
       ],
-      "@/firebase/*": [
-        "firebase/*"
+      "@/context/*": [
+        "context/*"
+      ],
+      "@/icons/*": [
+        "public/icons*"
       ]
     }
   }

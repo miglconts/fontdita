@@ -11,13 +11,14 @@ import {
 
 export default async function ProductDetail({ slug }) {
   const item = await fetch(
-    `${process.env.NEXT_PUBLIC_HOST}/api/detail/${slug}`
+    `${process.env.NEXT_PUBLIC_HOST}/api/detail/${slug}`,
+    { cache: "no-store" }
   ).then((r) => r.json());
   console.log(item);
 
   return (
     <article className=" m-auto">
-      <section className="flex flex-col md:flex-row gap-6">
+      <section className="flex flex-col md:flex-row gap-6" key={item.id}>
         <div className="relative basis-1/2">
           <Carousel className=" mx-6 ">
             <CarouselContent>
@@ -41,7 +42,7 @@ export default async function ProductDetail({ slug }) {
             {item.title}
           </h2>
           <p className="text-4xl">$ {item.price}</p>
-          <Quantity />
+          <Quantity item={item} />
         </div>
       </section>
       <section className="mt-12">

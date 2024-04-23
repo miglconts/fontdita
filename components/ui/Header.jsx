@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import CartWidget from "./CartWidget";
 
 const links = [
   {
@@ -44,6 +45,7 @@ const Header = () => {
               </Link>
             );
           })}
+          <CartWidget />
         </nav>
       </div>
     </header>

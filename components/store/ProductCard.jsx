@@ -11,7 +11,7 @@ import {
 
 const ProductCard = ({ item }) => {
   return (
-    <Card className="basis-72 flex border ">
+    <Card className="basis-72 flex border  " >
       <Link
         href={`/store/detail/${item.id}`}
         className="flex flex-col"

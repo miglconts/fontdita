@@ -1,6 +1,7 @@
 "use client";
 import { Button } from "./button";
-const Counter = ({ counter, setCounter, max }) => {
+
+export default function Counter({ counter, setCounter, max })  {
   const increase = () => counter < max && setCounter(counter + 1);
   const decrease = () => counter > 1 && setCounter(counter - 1);
 
@@ -25,4 +26,3 @@ const Counter = ({ counter, setCounter, max }) => {
   );
 };
 
-export default Counter;
