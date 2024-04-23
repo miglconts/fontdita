@@ -11,7 +11,7 @@ export const CartProvider = ({ children }) => {
   const addToCart = (item) => {
     setCart([...cart, item]);
   };
-
+  ///
   const isInCart = (slug) => {
     return cart.some((item) => item.id === slug);
   };
