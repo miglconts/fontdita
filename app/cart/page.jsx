@@ -1,6 +1,6 @@
 "use client";
 import CartItem from "@/components/cart/CartItem";
-import { useCartContext } from "@/app/context/CartCONTEXT";
+import { useCartContext } from "../context/CartContext";
 import { Button } from "@/components/ui/button";
 
 export default function CartPage() {

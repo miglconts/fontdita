@@ -14,9 +14,6 @@
       "@/api/*": [
         "api/*"
       ],
-      "@/context/*": [
-        "app/context/*"
-      ],
       "@/icons/*": [
         "public/icons*"
       ]

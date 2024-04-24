@@ -2,7 +2,7 @@ import { JetBrains_Mono, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/ui/Header";
 import Footer from "@/ui/Footer";
-import { CartProvider } from "@/app/context/CartCONTEXT";
+import { CartProvider } from "@/app/context/CartContext";
 
 const sans = Open_Sans({
   subsets: ["latin"],

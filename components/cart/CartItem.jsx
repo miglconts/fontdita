@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/ui/button";
 import Image from "next/image";
-import { useCartContext } from "@/app/context/CartCONTEXT";
+import { useCartContext } from "../../app/context/CartContext";
 
 export default function CartItem({ item }) {
   const { removeItem } = useCartContext();
