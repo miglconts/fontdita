@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useCartContext } from "@/context/cartContext";
+import { useCartContext } from "@/app/context/cartContext";
 import Image from "next/image";
 import CartIcon from "@/public/icons/cart-icon";
 

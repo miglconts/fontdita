@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Counter from "@/ui/Counter";
 import { Button } from "../ui/button";
-import { useCartContext } from "@/context/cartContext";
+import { useCartContext } from "@/app/context/cartContext";
 import Link from "next/link";
 
 export default function Quantity({ item }) {
