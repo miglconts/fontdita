@@ -14,7 +14,7 @@ export default async function ProductDetail({ slug }) {
     `${process.env.NEXT_PUBLIC_HOST}/api/detail/${slug}`,
     { cache: "no-store" }
   ).then((r) => r.json());
-  console.log(item);
+  // console.log(item);
 
   return (
     <article className=" m-auto">

@@ -1,12 +1,14 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import mockData from "../data/mockData";
+import { getStorage } from "firebase/storage";
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
+
 import {
   getFirestore,
   collection,
   addDoc,
   getDocs,
-  getDoc,
   doc,
   updateDoc,
 } from "firebase/firestore";
@@ -26,6 +28,9 @@ export const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+export const storage = getStorage(app);
+export const auth = getAuth(app);
+export const provider = new GoogleAuthProvider();
 
 // Función que manda un array a firestore// es necesario un boton para llamar a la función
 export async function addItemsToFB() {
@@ -45,7 +50,7 @@ export async function fetchDataFromFirestore() {
     const docRef = doc(db, "products", document.id);
     updateDoc(docRef, { id: document.id });
 
-    console.log(document.id, docRef);
+    // console.log(document.id, docRef);
   });
   // console.log(data);
   return data;

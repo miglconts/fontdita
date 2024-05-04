@@ -12,7 +12,6 @@ export async function GET(request, { params }) {
       ? productsRef
       : query(productsRef, where("category.name", "==", category));
   const querySnapshot = await getDocs(q);
-  console.log(q);
   const docs = querySnapshot.docs.map((doc) => doc.data());
 
   // revalidatePath("/products/[category]");

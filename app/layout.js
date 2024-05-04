@@ -2,7 +2,8 @@ import { JetBrains_Mono, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/ui/Header";
 import Footer from "@/ui/Footer";
-import { CartProvider } from "@/app/context/CartContext";
+import { CartProvider } from "./context/CartContext";
+import { AuthProvider } from "./context/AuthContext";
 
 const sans = Open_Sans({
   subsets: ["latin"],
@@ -24,11 +25,13 @@ export default function RootLayout({ children }) {
       <body
         className={`min-h-screen bg-background font-sans antialiased flex flex-col justify-between ${sans.variable}`}
       >
-        <CartProvider>
-          <Header />
-          {children}
-          <Footer />
-        </CartProvider>
+        <AuthProvider>
+          <CartProvider>
+            <Header />
+            {children}
+            <Footer />
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );
