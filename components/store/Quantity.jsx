@@ -6,7 +6,7 @@ import { useCartContext } from "../../app/context/CartContext";
 import Link from "next/link";
 
 export default function Quantity({ item }) {
-  const { addToCart, isInCart } = useCartContext();
+  const { cart, addToCart, isInCart } = useCartContext();
   const [quantity, setQuantity] = useState(1);
   const handleAdd = () => {
     addToCart({

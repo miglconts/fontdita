@@ -4,7 +4,7 @@ import { useCartContext } from "../context/CartContext";
 import { Button } from "@/components/ui/button";
 
 export default function CartPage() {
-  const { cart } = useCartContext();
+  const { cart, totalPrice } = useCartContext();
 
   return (
     <main className="container m-auto">
@@ -14,6 +14,11 @@ export default function CartPage() {
           <CartItem item={item} key={item.id} />
         ))}
       </ul>
+      <div className="bg-black block">
+        <p className="text-2xl my-4 border-b pb-4 bg-slate-300 ">
+          Total: ${totalPrice()}
+        </p>
+      </div>
     </main>
   );
 }

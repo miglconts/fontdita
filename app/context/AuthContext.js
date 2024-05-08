@@ -41,17 +41,18 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        const docRef = doc(db, "roles", user.uid);
+    console.log(router);
+    onAuthStateChanged(auth, async (usuario) => {
+      // console.log(usuario.uid);
+      if (usuario) {
+        const docRef = doc(db, "roles", usuario.uid);
         const userDoc = await getDoc(docRef);
-        // console.log(userDoc.data());
 
         if (userDoc.data()?.rol === "admin") {
           setUser({
             logged: true,
-            email: user.email,
-            uid: user.uid,
+            email: usuario.email,
+            uid: usuario.uid,
           });
         } else {
           logout();

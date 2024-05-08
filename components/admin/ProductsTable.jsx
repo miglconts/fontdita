@@ -9,12 +9,6 @@ const ProductsTable = async () => {
 
   return (
     <>
-      <Link
-        href={"/admin/create"}
-        className="rounded bg-blue-600 p-2 text-white"
-      >
-        Crear nuevo
-      </Link>
       <div className="overflow-x-auto">
         <table className="w-full text-xs text-left text-gray-600">
           <thead className="text-xs text-gray-700 uppercase">
@@ -79,6 +73,12 @@ const ProductsTable = async () => {
           </tbody>
         </table>
       </div>
+      <Link
+        href={"/admin/create"}
+        className="rounded bg-blue-600 p-2 text-white text-center font-bold"
+      >
+        Crear nuevo
+      </Link>
     </>
   );
 };

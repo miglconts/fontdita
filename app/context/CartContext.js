@@ -11,20 +11,26 @@ export const CartProvider = ({ children }) => {
   const addToCart = (item) => {
     setCart([...cart, item]);
   };
-  ///
+
+  const removeItem = (slug) => {
+    setCart(cart.filter((i) => i.id != slug));
+  };
+
   const isInCart = (slug) => {
-    return cart.some((item) => item.id === slug);
+    let articlesID = cart.map((item) => item.id);
+    return articlesID.includes(slug);
   };
 
   const totalQty = () => {
     return cart.reduce((acc, item) => acc + item.quantity, 0);
   };
 
+  const totalPrice = () => {
+    return cart.reduce((acc, item) => acc + item.quantity * item.price, 0);
+  };
+
   const emptyCart = () => {
     setCart([]);
-  };
-  const removeItem = (slug) => {
-    setCart(cart.filter((item) => item.id !== slug));
   };
 
   return (
@@ -33,9 +39,10 @@ export const CartProvider = ({ children }) => {
         cart,
         addToCart,
         isInCart,
-        removeItem,
         totalQty,
         emptyCart,
+        removeItem,
+        totalPrice,
       }}
     >
       {children}

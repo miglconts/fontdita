@@ -8,10 +8,10 @@ const links = [
     label: "Tienda",
     href: "/store/all",
   },
-  {
-    label: "Blog",
-    href: "/blog",
-  },
+  // {
+  //   label: "Blog",
+  //   href: "/blog",
+  // },
   {
     label: "About",
     href: "/about",

@@ -3,7 +3,7 @@ import ProductsList from "@/components/store/ProductsList";
 
 export async function generateMetadata({ params, searchParams }, parent) {
   return {
-    title: `CoderApp - ${params.category}`,
+    title: `Fontdita - ${params.category}`,
   };
 }
 

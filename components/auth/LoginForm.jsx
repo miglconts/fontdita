@@ -2,6 +2,17 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useAuthContext } from "../../app/context/AuthContext";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const LoginForm = () => {
   const { registerUser, loginUser, googleLogin } = useAuthContext();
@@ -22,39 +33,94 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="fixed w-screen h-screen inset-0 z-10 flex justify-center items-center bg-blue-400 bg-opacity-25">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white py-4 px-6 rounded-xl max-w-md w-full"
-      >
-        <h2>Login</h2>
-        <input
-          type="email"
-          value={values.email}
-          required
-          placeholder="Tu email"
-          className="p-2 rounded w-full border border-blue-100 block my-4"
-          name="email"
-          onChange={handleChange}
-        />
-        <input
-          type="password"
-          value={values.password}
-          required
-          placeholder="Tu password"
-          className="p-2 rounded w-full border border-blue-100 block my-4"
-          name="password"
-          onChange={handleChange}
-        />
-        <Button onClick={() => loginUser(values)} className="mr-4">
-          Ingresar
-        </Button>
-        <Button onClick={() => registerUser(values)}>Registrarme</Button>
-        <Button onClick={googleLogin} className="mt-2 block">
-          Ingresar con Google
-        </Button>
-      </form>
-    </div>
+    <Tabs defaultValue="account" className="w-[400px] container">
+      <TabsList className="grid w-full grid-cols-2">
+        <TabsTrigger value="account">Registro</TabsTrigger>
+        <TabsTrigger value="password">Ingresar</TabsTrigger>
+      </TabsList>
+      <TabsContent value="account">
+        <Card>
+          <CardHeader>
+            <CardTitle>Registro</CardTitle>
+            <CardDescription>
+              Registra tu correo y contraseña para poder ver, editar y eliminar
+              items de la tienda{" "}
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            <div className="space-y-1">
+              <Label htmlFor="email">Correo</Label>
+              <Input
+                type="email"
+                id="email"
+                defaultValue="correo@registrado.com"
+                value={values.email}
+                required
+                name="email"
+                onChange={handleChange}
+              />
+            </div>
+            <div className="space-y-1">
+              <Label htmlFor="password">Contraseña</Label>
+              <Input
+                type="password"
+                value={values.password}
+                required
+                name="password"
+                onChange={handleChange}
+                id="password"
+              />
+            </div>
+          </CardContent>
+          <CardFooter>
+            <Button onClick={() => registerUser(values)}>Registrarme</Button>
+          </CardFooter>
+        </Card>
+      </TabsContent>
+      <TabsContent value="password">
+        <Card>
+          <CardHeader>
+            <CardTitle>Ingresar</CardTitle>
+            <CardDescription>
+              Ingresa al panel admin con correo y contraseña
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            <div className="space-y-1">
+              <Label htmlFor="current">Correo registrado</Label>
+              <Input
+                type="email"
+                id="email"
+                defaultValue="correo@registrado.com"
+                value={values.email}
+                required
+                name="email"
+                onChange={handleChange}
+              />
+            </div>
+            <div className="space-y-1">
+              <Label htmlFor="new">Contraseña</Label>
+              <Input
+                type="password"
+                value={values.password}
+                required
+                name="password"
+                onChange={handleChange}
+                id="password"
+              />
+            </div>
+          </CardContent>
+          <CardFooter className="container flex flex-col items-center content-center justify-center">
+            <Button onClick={() => loginUser(values)} className="">
+              Ingresar
+            </Button>
+            <Button onClick={googleLogin} className="mt-2 block " variant = "outline">
+              Ingresar con Google
+            </Button>
+          </CardFooter>
+        </Card>
+      </TabsContent>
+    </Tabs>
   );
 };
 
